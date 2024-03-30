@@ -9,10 +9,12 @@ class GPC():
         self.M = cp.Variable(40)
         self.M.value = np.zeros(40)
         self.t = -1
-        self.g = g
+
+        self.L = 30     # 20\sqrt{2} coefficient of one M in the history function. equation (8) in the paper
+        self.g = 300    # d = p = 10
 
         # OGD stuff, it knows T
-        self.eta = (2 * self.kappa_M) / np.sqrt(g * (g + 1 * p ** 2) * T)  # from agarwal appendix (GPC paper).
+        self.eta = (2 * self.kappa_M) / np.sqrt(self.g * (self.g + self.L * 10 ** 2) * T)  # from agarwal appendix (GPC paper).
 
         # projection stuff
         self.non_projected_sol_parameter = cp.Parameter(40)

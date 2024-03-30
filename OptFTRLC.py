@@ -77,4 +77,4 @@ class OptFTRLC():
         # 2- accumulate [-12] in the root
         if len(self.pred_error) > 12:
             self.acc_error += (self.pred_error[-12]) ** 2
-        return (2 * self.max_sum) / (self.kappa_M ** 2) + (1 / self.kappa_M) * (np.sqrt(5 * self.acc_error))
+        return (4 * self.max_sum) / (self.kappa_M) + (1 / self.kappa_M) * (np.sqrt(5 * self.acc_error))
