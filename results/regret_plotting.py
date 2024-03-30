@@ -35,23 +35,23 @@ plt.plot(np.arange(T)/1000, optimistic_bad_, color='Red', label=r"OptFTRL-C, $\r
 
 plt.figtext(0.9, 0, r'$\times 10^3$', ha="right", fontsize=14)
 
-plt.legend(prop={'size': 17}, loc=0)
+plt.legend(prop={'size': 16}, loc=0)
 
-# for a
+# Formatting for a
 # plt.ylabel(r"Average regret $R_T/T$", fontsize=22)
 # plt.xlabel(r'Horizon $T$', fontsize=22)
-# plt.yticks(np.arange(0, 81, 20), fontsize=17, weight='bold')
+# plt.yticks(np.arange(0, 361, 50), fontsize=17, weight='bold')
 # plt.xticks(np.arange(0, 1.1, 0.2), fontsize=17, weight='bold')
 # plt.savefig("./aa.pdf", bbox_inches = 'tight',pad_inches = 0)
 
-# for b
+# Formatting for b
 # plt.ylabel(r"Average regret $R_T/T$", fontsize=22)
 # plt.xlabel(r'Horizon $T$', fontsize=22)
-# plt.yticks(np.arange(0,141,20), fontsize=17, weight='bold')
-# plt.xticks(np.arange(0,1.1,0.2), fontsize=17, weight='bold')
+# plt.yticks(np.arange(0, 176, 20), fontsize=17, weight='bold')
+# plt.xticks(np.arange(0, 1.1, 0.2), fontsize=17, weight='bold')
 # plt.savefig("./bb.pdf", bbox_inches = 'tight',pad_inches = 0)
 
-# for c
+# Formatting for c
 # plt.ylabel(r"Average regret $R_T/T$", fontsize=22)
 # plt.xlabel(r'Horizon $T$', fontsize=22)
 # plt.yticks(np.arange(0,18,2), fontsize=17, weight='bold')
@@ -59,17 +59,14 @@ plt.legend(prop={'size': 17}, loc=0)
 # plt.savefig("./cc.pdf", bbox_inches = 'tight',pad_inches = 0)
 
 
-print("Accumelated costs are below")
+print("Accumulated costs:")
 print("GPC: {}".format(costs_gpc_cum[-1]))
 print("OFTRL good: {}".format(costs_optimistic_cum[-1]))
 print("OFTRL bad: {}".format(costs_optimistic_bad_cum[-1]))
 print("Optimal: {}".format(costs_optimal[-1]))
 
 
-print("Improvements  are below")
-# print("OFTRL good over GPC 200: {}".format(np.abs(gpc_[200] - optimistic_[200])/gpc_[200]))
-# print("OFTRL good over GPC 400: {}".format(np.abs(gpc_[400] - optimistic_[400])/gpc_[400]))
-# print("OFTRL good over GPC 1000: {}".format(np.abs(gpc_[-1] - optimistic_[-1])/gpc_[-1]))
+print("Improvements:")
 print("OFTRL good over GPC overall: {}".format(np.average(np.abs(gpc_[10:] - optimistic_[10:])/gpc_[10:])))
 print("OFTRL bad over GPC overall: {}".format(np.average(np.abs(gpc_[10:] - optimistic_bad_[10:])/gpc_[10:])))
 
